@@ -4,10 +4,7 @@ require("colors");
 
 const showMenu = () => {
   return new Promise((resolve) => {
-    console.clear();
-    console.log("==========================================".green);
-    console.log("Select an option".green);
-    console.log("==========================================".green);
+    
 
     console.log(`${"1 .".green} Create task`);
     console.log(`${"2 .".green} List all tasks`);
