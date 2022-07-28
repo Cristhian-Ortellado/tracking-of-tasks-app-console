@@ -3,7 +3,8 @@ import {
   pause,
   readInput,
   listTaskToDelete,
-  confirm
+  confirm,
+  showTaskCheckList
 } from "./helpers/inquirer.js";
 import { saveDb, readDB } from "./helpers/saveFile.js";
 import { Tasks } from "./models/tasks.js";
@@ -42,6 +43,13 @@ const main = async () => {
       //list pending tasks
       case "4":
         tasks.printTaskByStatus(false);
+        break;
+
+      //checkbox lists 
+      case "5":
+        const ids = await showTaskCheckList(tasks.listArr);
+        //modify tasks
+        tasks.toggleCompleted(ids)
         break;
 
       //list tasks to be delete

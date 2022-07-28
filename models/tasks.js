@@ -61,6 +61,24 @@ class Tasks {
       delete this._listado[id];
     }
   }
+
+  toggleCompleted(ids =[]){
+    
+    ids.forEach(id=>{
+      const task = this._listado[id];
+      
+      if(!task.completed_at)
+          task.completed_at = new Date().toISOString();
+      
+    })
+
+    this.listArr.forEach(task=>{
+      if(!ids.includes(task.id)){
+        this._listado[task.id].completed_at = null;
+      }
+    })
+  }
+
 }
 
 export { Tasks };
